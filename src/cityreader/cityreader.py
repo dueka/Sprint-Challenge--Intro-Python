@@ -26,7 +26,7 @@ class City:
         return f"{self.name} has {self.lat} and {self.lon}"
 
 
-city = []
+# city = []
 
 cities = []
 
@@ -37,13 +37,13 @@ def cityreader(cities=[]):
     # `cities` list
     path = os.getcwd() + '/src/cityreader/cities.csv'
     with open(path) as csvfile:
-        cities = csv.reader(csvfile, delimiter=',')
-        next(cities)
-        for row in cities:
+        data = csv.reader(csvfile, delimiter=',')
+        next(data)
+        for row in data:
             city = City(row[0], float(row[3]), float(row[4]))
-        # city = cities.append(City)
-        print(city)
-        csvfile.close()
+            cities.append(city)
+        # print(city)
+        # csvfile.close()
     return cities
 
 
